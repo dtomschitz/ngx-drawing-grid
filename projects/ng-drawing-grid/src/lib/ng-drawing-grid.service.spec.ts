@@ -1,13 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-
-import { NgDrawingGridService } from './ng-drawing-grid.service';
+import { DrawingGridService } from './drawing-grid.service';
 
 describe('NgDrawingGridService', () => {
-  let service: NgDrawingGridService;
+  let service: DrawingGridService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(NgDrawingGridService);
+    service = TestBed.inject(DrawingGridService);
   });
 
   it('should be created', () => {

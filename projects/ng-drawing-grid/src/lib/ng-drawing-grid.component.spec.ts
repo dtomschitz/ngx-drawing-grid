@@ -1,20 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgDrawingGridComponent } from './ng-drawing-grid.component';
+import { DrawingGridComponent } from './drawing-grid.component';
 
 describe('NgDrawingGridComponent', () => {
-  let component: NgDrawingGridComponent;
-  let fixture: ComponentFixture<NgDrawingGridComponent>;
+  let component: DrawingGridComponent;
+  let fixture: ComponentFixture<DrawingGridComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgDrawingGridComponent ]
-    })
-    .compileComponents();
+      declarations: [DrawingGridComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgDrawingGridComponent);
+    fixture = TestBed.createComponent(DrawingGridComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

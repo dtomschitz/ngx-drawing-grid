@@ -1,0 +1,12 @@
+<div (mousedown)="lockMouse($event)" (mouseup)="releaseMouse($event)">
+  <canvas
+    #canvas
+    class="pixels"
+    [width]="width"
+    [height]="height"
+    (mousedown)="onMouseDown($event)"
+    (mousemove)="onMouseMove($event)"
+    (mouseup)="onMouseUp($event)"
+    (contextmenu)="onContextMenu($event)">
+  </canvas>
+</div>
