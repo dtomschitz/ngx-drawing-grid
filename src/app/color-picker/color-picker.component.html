@@ -1,0 +1,5 @@
+<mat-card>
+  <button *ngFor="let color of colors" (click)="setColor(color.value)" [matTooltip]="color.name" mat-button>
+    <span class="dot" [ngStyle]="{'background-color': color.value }"></span>
+  </button>
+</mat-card>

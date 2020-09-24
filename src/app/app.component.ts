@@ -1,8 +1,8 @@
-import { Component, ElementRef, AfterViewInit, OnInit } from '@angular/core';
-import { DrawingGridService, Pixel } from 'drawing-grid';
-import { PaintingMode } from 'projects/ng-drawing-grid/src/lib/models';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { DrawingGridService, Pixel, PaintingMode } from 'drawing-grid';
+import { ColorPickerService } from './color-picker';
 
 @Component({
   selector: 'app-root',
@@ -17,30 +17,39 @@ export class AppComponent implements OnInit {
   nodeSize = 28;
 
   private paintingMode: PaintingMode;
+  private color: string;
 
-  constructor(private host: ElementRef, private gridService: DrawingGridService) {}
+  constructor(
+    private host: ElementRef,
+    private gridService: DrawingGridService,
+    private colorPickerService: ColorPickerService
+  ) {}
 
   ngOnInit() {
     this.gridService.paintingMode$.pipe(takeUntil(this.destroy$)).subscribe((paintingMode) => {
       this.paintingMode = paintingMode;
     });
 
+    this.colorPickerService.color$.pipe(takeUntil(this.destroy$)).subscribe((color) => {
+      this.color = color;
+    });
+
     this.width = this.host.nativeElement.clientWidth;
     this.height = this.host.nativeElement.clientHeight - 64;
   }
 
-  onMouseDown({ x, y }: Pixel) {
-    this.fillPixel(x, y);
+  onMouseDown(pixel: Pixel) {
+    this.fillPixel(pixel.x, pixel.y);
   }
 
-  onMouseMove({ x, y }: Pixel) {
-    this.fillPixel(x, y);
+  onMouseMove(pixel: Pixel) {
+    this.fillPixel(pixel.x, pixel.y);
   }
 
-  onMouseUp({ x, y }: Pixel) {}
+  onMouseUp(pixel: Pixel) {}
 
-  onContextMenu({ x, y }: Pixel) {
-    this.gridService.clearPixel(x, y);
+  onContextMenu(pixel: Pixel) {
+    this.gridService.clearPixel(pixel.x, pixel.y);
   }
 
   private fillPixel(x: number, y: number) {
@@ -49,6 +58,6 @@ export class AppComponent implements OnInit {
       return;
     }
 
-    this.gridService.fillPixel(x, y, 'black');
+    this.gridService.fillPixel(x, y, this.color);
   }
 }

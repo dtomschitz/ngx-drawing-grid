@@ -1,4 +1,7 @@
-<mat-toolbar>Drawing Grid</mat-toolbar>
+<mat-toolbar>
+  <mat-icon color="primary">brush</mat-icon>
+  Drawing Grid
+</mat-toolbar>
 <ng-container *ngIf="width && height">
   <drawing-grid
     [width]="width"
@@ -9,4 +12,5 @@
     (mouseUp)="onMouseUp($event)"
     (contextMenu)="onContextMenu($event)">
   </drawing-grid>
+  <color-picker></color-picker>
 </ng-container>

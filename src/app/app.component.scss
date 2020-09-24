@@ -1,7 +1,23 @@
+@import '~@angular/material/theming';
+
 :host {
   height: 100%;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+mat-toolbar {
+  @include mat-elevation(8);
+  font-weight: 300;
+
+  mat-icon {
+    margin-right: 16px;
+  }
+}
+
+color-picker {
+  right: 20px;
+  top: 84px;
 }
