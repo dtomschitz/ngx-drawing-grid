@@ -16,7 +16,7 @@
       "dom"
     ],
     "paths": {
-      "ng-drawing-grid": [
+      "drawing-grid": [
         "dist/ng-drawing-grid/ng-drawing-grid",
         "dist/ng-drawing-grid"
       ]
