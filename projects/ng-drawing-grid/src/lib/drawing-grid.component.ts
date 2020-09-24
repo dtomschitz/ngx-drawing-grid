@@ -13,7 +13,7 @@ import {
 import { Subject } from 'rxjs';
 import { distinctUntilChanged, takeUntil } from 'rxjs/operators';
 import { DrawingGridService } from './drawing-grid.service';
-import { Pixel } from './models';
+import { PaintingMode, Pixel } from './models';
 
 @Component({
   selector: 'drawing-grid',
@@ -99,6 +99,7 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onMouseUp(event: MouseEvent) {
     if (!this.disabled && this.isMouseLocked) {
+      this.gridService.setPaintingMode(PaintingMode.CREATE);
       this.mouseUp.emit(this.getPixelAt(event.offsetX, event.offsetY));
     }
   }
@@ -106,6 +107,7 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
   onContextMenu(event: MouseEvent) {
     event.preventDefault();
     if (!this.disabled) {
+      this.gridService.setPaintingMode(PaintingMode.ERASE);
       this.contextMenu.emit(this.getPixelAt(event.offsetX, event.offsetY));
     }
   }

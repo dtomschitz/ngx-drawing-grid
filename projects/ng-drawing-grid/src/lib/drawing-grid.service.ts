@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { Pixel, PixelIcon } from './models';
+import { PaintingMode, Pixel, PixelIcon } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class DrawingGridService {
   private readonly _isMouseLocked = new BehaviorSubject<boolean>(false);
+  private readonly _paintingMode = new BehaviorSubject<PaintingMode>(PaintingMode.CREATE);
+
   private readonly _pixels = new BehaviorSubject<Pixel[]>([]);
 
   readonly isMouseLocked$ = this._isMouseLocked.asObservable();
+  readonly paintingMode$ = this._paintingMode.asObservable();
   readonly pixels$ = this._pixels.asObservable();
 
   lockMouse() {
@@ -16,6 +19,10 @@ export class DrawingGridService {
 
   releaseMouse() {
     this.isMouseLocked = false;
+  }
+
+  setPaintingMode(mode: PaintingMode) {
+    this._paintingMode.next(mode);
   }
 
   renderPixel(x: number, y: number, options?: { fillStyle?: string; icon?: PixelIcon }) {
