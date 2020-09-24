@@ -4,4 +4,4 @@
 
 export * from './lib/drawing-grid.service';
 export * from './lib/drawing-grid.component';
-export * from './lib/ng-drawing-grid.module';
+export * from './lib/drawing-grid.module';

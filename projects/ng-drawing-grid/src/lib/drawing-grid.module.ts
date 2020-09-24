@@ -6,4 +6,4 @@ import { DrawingGridComponent } from './drawing-grid.component';
   imports: [],
   exports: [DrawingGridComponent],
 })
-export class NgDrawingGridModule {}
+export class DrawingGridModule {}

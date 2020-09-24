@@ -180,6 +180,14 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private calculateGridSizes() {
+    if (!this.xNodes) {
+      this.xNodes = Math.floor(this.width / this.pixelSize);
+    }
+
+    if (!this.yNodes) {
+      this.yNodes = Math.floor(this.height / this.pixelSize);
+    }
+
     this.paddingX = this.width - this.xNodes * this.pixelSize;
     this.paddingY = this.height - this.yNodes * this.pixelSize;
     this.paddingLeft = Math.ceil(this.paddingX / 3) - 0.5;

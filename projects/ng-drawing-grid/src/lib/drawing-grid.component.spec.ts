@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DrawingGridComponent } from './drawing-grid.component';
 
-describe('NgDrawingGridComponent', () => {
+describe('DrawingGridComponent', () => {
   let component: DrawingGridComponent;
   let fixture: ComponentFixture<DrawingGridComponent>;
 
