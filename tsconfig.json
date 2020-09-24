@@ -14,7 +14,13 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
+    "paths": {
+      "ng-drawing-grid": [
+        "dist/ng-drawing-grid/ng-drawing-grid",
+        "dist/ng-drawing-grid"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
