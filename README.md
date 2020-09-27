@@ -5,6 +5,19 @@
 
 ## Usage
 ```typescript
+import { NgModule } from '@angular/core';
+import { DrawingGridModule } from 'ngx-drawing-grid';
+import { AppComponent } from './app.component';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [DrawingGridModule],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+```typescript
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
