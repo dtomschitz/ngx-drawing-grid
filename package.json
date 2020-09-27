@@ -4,9 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build:app": "ng build --prod --base-href https://davidddo.github.io/ng-drawing-grid/",
+    "build:app": "ng build --prod --base-href https://davidddo.github.io/ngx-drawing-grid/",
     "build:lib": "ng build ngx-drawing-grid --prod && cp -r README.md dist/ngx-drawing-grid",
-    "deploy": "ng deploy --base-href=/ng-drawing-grid/",
+    "deploy": "ng deploy --base-href=/ngx-drawing-grid/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

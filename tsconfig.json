@@ -17,7 +17,6 @@
     ],
     "paths": {
       "ngx-drawing-grid": [
-        "dist/ngx-drawing-grid/ngx-drawing-grid",
         "dist/ngx-drawing-grid"
       ]
     }
