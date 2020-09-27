@@ -35,7 +35,7 @@ export class AppComponent implements OnInit {
     });
 
     this.width = this.host.nativeElement.clientWidth;
-    this.height = this.host.nativeElement.clientHeight - 64;
+    this.height = this.host.nativeElement.clientHeight;
   }
   
   ngOnDestroy() {
