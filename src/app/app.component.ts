@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DrawingGridService, Pixel, PaintingMode } from 'drawing-grid';
+import { DrawingGridService, Pixel, PaintingMode } from 'ngx-drawing-grid';
 import { ColorPickerService } from './color-picker';
 
 @Component({

@@ -8,7 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { DrawingGridModule } from 'drawing-grid';
+import { DrawingGridModule } from 'ngx-drawing-grid';
 import { ColorPickerComponent, ColorPickerService } from './color-picker';
 import { AppComponent } from './app.component';
 
