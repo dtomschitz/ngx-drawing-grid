@@ -6,7 +6,6 @@ import { PaintingMode, Pixel, PixelIcon } from './models';
 export class DrawingGridService {
   private readonly _isMouseLocked = new BehaviorSubject<boolean>(false);
   private readonly _paintingMode = new BehaviorSubject<PaintingMode>(PaintingMode.CREATE);
-
   private readonly _pixels = new BehaviorSubject<Pixel[]>([]);
 
   readonly isMouseLocked$ = this._isMouseLocked.asObservable();
@@ -44,13 +43,11 @@ export class DrawingGridService {
   }
 
   getPixelById(id: string) {
-    const coordinates = id.split('-');
-    return this.getPixel(+coordinates[1], +coordinates[0]);
+    return this.pixels.find((pixel) => (pixel.id = id));
   }
 
   private updatePixel(x: number, y: number, options?: { fillStyle?: string; icon?: PixelIcon }) {
-    const id = `${y}-${x}`;
-    const pixel = this.pixels.find((pixel) => pixel.id === id);
+    const pixel = this.getPixelById(`${y}-${x}`);
 
     if (pixel) {
       if (pixel.fillStyle === options.fillStyle) {
