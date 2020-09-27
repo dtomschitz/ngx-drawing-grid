@@ -81,6 +81,14 @@ export class AppComponent implements OnInit {
 </ng-container>
 ```
 
+## Inputs
+* `width` - The width of the canvas. The value will also be used for calculating the amount of pixels on the x-axis if the input `xNodes` is undefined
+* `height` - The height of the canvas. The value will also be used for calculating the amount of pixels on the y-axis if the input `yNodes` is undefined
+* `xNodes` - The amount of pixels on the y-axis
+* `yNodes` - The amount of pixels on the y-axis
+* `pixelSize` - The size of a pixel
+* `disabled` - Disables or enables the canvas. If it is set to true the events will not get emitted
+
 ## API
 * `isMouseLocked$` - Observe whether the mouse is currently locked or not. If the value is true either the left or right mouse button is currently pressed by the user
 * `paintingMode$` - Observe the current set painting mode
