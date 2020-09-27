@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "drawing-grid": {
+    "drawing-grid-playground": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/drawing-grid",
+            "outputPath": "dist/drawing-grid-playground",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -67,18 +67,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "drawing-grid:build"
+            "browserTarget": "drawing-grid-playground:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "drawing-grid:build:production"
+              "browserTarget": "drawing-grid-playground:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "drawing-grid:build"
+            "browserTarget": "drawing-grid-playground:build"
           }
         },
         "test": {
@@ -116,48 +116,48 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "drawing-grid:serve"
+            "devServerTarget": "drawing-grid-playground:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "drawing-grid:serve:production"
+              "devServerTarget": "drawing-grid-playground:serve:production"
             }
           }
         }
       }
     },
-    "ng-drawing-grid": {
+    "ngx-drawing-grid": {
       "projectType": "library",
-      "root": "projects/ng-drawing-grid",
-      "sourceRoot": "projects/ng-drawing-grid/src",
+      "root": "projects/ngx-drawing-grid",
+      "sourceRoot": "projects/ngx-drawing-grid/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng-drawing-grid/tsconfig.lib.json",
-            "project": "projects/ng-drawing-grid/ng-package.json"
+            "tsConfig": "projects/ngx-drawing-grid/tsconfig.lib.json",
+            "project": "projects/ngx-drawing-grid/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-drawing-grid/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-drawing-grid/tsconfig.lib.prod.json"
             }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-drawing-grid/src/test.ts",
-            "tsConfig": "projects/ng-drawing-grid/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-drawing-grid/karma.conf.js"
+            "main": "projects/ngx-drawing-grid/src/test.ts",
+            "tsConfig": "projects/ngx-drawing-grid/tsconfig.spec.json",
+            "karmaConfig": "projects/ngx-drawing-grid/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-drawing-grid/tsconfig.lib.json",
-              "projects/ng-drawing-grid/tsconfig.spec.json"
+              "projects/ngx-drawing-grid/tsconfig.lib.json",
+              "projects/ngx-drawing-grid/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -167,7 +167,7 @@
       }
     }
   },
-  "defaultProject": "drawing-grid",
+  "defaultProject": "drawing-grid-playground",
   "cli": {
     "analytics": "27346c21-1544-4e85-abeb-174d42d063ef"
   }
