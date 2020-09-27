@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { DrawingGridService, Pixel, PaintingMode } from 'drawing-grid';
@@ -9,7 +9,7 @@ import { ColorPickerService } from './color-picker';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   private readonly destroy$: Subject<void> = new Subject<void>();
 
   width: number;
@@ -36,6 +36,11 @@ export class AppComponent implements OnInit {
 
     this.width = this.host.nativeElement.clientWidth;
     this.height = this.host.nativeElement.clientHeight - 64;
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   onMouseDown(pixel: Pixel) {
