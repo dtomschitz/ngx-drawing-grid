@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { PaintingMode, Pixel, PixelIcon } from './models';
+import { PaintingMode, Pixel } from './models';
 
 @Injectable({ providedIn: 'root' })
 export class DrawingGridService {
@@ -24,18 +24,12 @@ export class DrawingGridService {
     this._paintingMode.next(mode);
   }
 
-  renderPixel(x: number, y: number, options?: { fillStyle?: string; icon?: PixelIcon }) {
-    this.updatePixel(x, y, {
-      ...options,
-    });
-  }
-
   fillPixel(x: number, y: number, fillStyle: string) {
-    this.updatePixel(x, y, { fillStyle });
+    this.updatePixel(x, y, fillStyle);
   }
 
   clearPixel(x: number, y: number) {
-    this.updatePixel(x, y, { fillStyle: undefined, icon: undefined });
+    this.updatePixel(x, y, undefined);
   }
 
   getPixel(x: number, y: number) {
@@ -46,18 +40,18 @@ export class DrawingGridService {
     return this.pixels.find((pixel) => (pixel.id = id));
   }
 
-  private updatePixel(x: number, y: number, options?: { fillStyle?: string; icon?: PixelIcon }) {
+  private updatePixel(x: number, y: number, fillStyle: string) {
     const pixel = this.getPixelById(`${y}-${x}`);
 
     if (pixel) {
-      if (pixel.fillStyle === options.fillStyle) {
+      if (pixel.fillStyle === fillStyle) {
         return;
       }
 
       const index = this.pixels.indexOf(pixel);
       this.pixels[index] = {
         ...pixel,
-        ...options,
+        fillStyle,
       };
       this.pixels = [...this.pixels];
     }

@@ -142,19 +142,6 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
           this.pixelSize
         );
       }
-
-      if (pixel.icon) {
-        const { fillStyle, scale, svg } = pixel.icon;
-        const translatedX = x * this.pixelSize + this.paddingLeft;
-        const translatedY = y * this.pixelSize + this.paddingTop;
-
-        this.renderingContext.save();
-        this.renderingContext.translate(translatedX + 4, translatedY + 4);
-        this.renderingContext.fillStyle = fillStyle;
-        this.renderingContext.scale(scale, scale);
-        this.renderingContext.fill(new Path2D(svg));
-        this.renderingContext.restore();
-      }
     });
 
     this.renderGrid();
