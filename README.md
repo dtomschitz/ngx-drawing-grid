@@ -2,11 +2,14 @@
  <img width="20%" height="20%" src="./logo.svg">
 </p>
 
+[![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg?style=flat-square)]()
+[![commitizen](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)]()
+[![PRs](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)]()
+[![styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
 ## Feature
-✅ Local Storage Support
-✅ Handles Simultaneous Requests
-✅ Automatic & Manual Cache Busting
-✅ Hackable
+✅ Lightning fast drawing <br>
+✅ Hackable <br>
 
 A flexible and straightforward library for drawing and interacting seamless with a grid using the HTML5 canvas. 
 
@@ -130,3 +133,4 @@ Each output event from the `DrawingGridComponent` will return the current Pixel 
 * `getPixel()` - Returns the pixel at the given x and y coordinates
 * `getPixelById()`- Returns the pixel which is associated with the given id
 
+Icon made by Flat Icons from www.flaticon.com
