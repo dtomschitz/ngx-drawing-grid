@@ -1,6 +1,6 @@
 {
   "name": "ngx-drawing-grid",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Angular library for drawing and interacting with a grid using the HTML5 canvas.",
   "keywords": [
     "angular",
