@@ -80,27 +80,35 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
 
   onMouseDown(event: MouseEvent) {
     if (!this.disabled) {
-      this.mouseDown.emit(this.getPixelAt(event.offsetX, event.offsetY));
+      const pixel = this.getPixelAt(event.offsetX, event.offsetY);
+      if (pixel) {
+        this.mouseDown.emit(pixel);
+      }
     }
   }
 
   onMouseMove(event: MouseEvent) {
     if (!this.disabled && this.isMouseLocked) {
       const pixel = this.getPixelAt(event.offsetX, event.offsetY);
+      if (pixel) {
+        if (this.cachedPixel && this.cachedPixel.x === pixel.x && this.cachedPixel.y === pixel.y) {
+          return;
+        }
 
-      if (this.cachedPixel && this.cachedPixel.x === pixel.x && this.cachedPixel.y === pixel.y) {
-        return;
+        this.cachedPixel = pixel;
+        this.mouseMove.emit(pixel);
       }
-
-      this.cachedPixel = pixel;
-      this.mouseMove.emit(this.getPixelAt(event.offsetX, event.offsetY));
     }
   }
 
   onMouseUp(event: MouseEvent) {
     if (!this.disabled && this.isMouseLocked) {
       this.gridService.setPaintingMode(PaintingMode.CREATE);
-      this.mouseUp.emit(this.getPixelAt(event.offsetX, event.offsetY));
+
+      const pixel = this.getPixelAt(event.offsetX, event.offsetY);
+      if (pixel) {
+        this.mouseUp.emit(pixel);
+      }
     }
   }
 
@@ -108,7 +116,11 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
     event.preventDefault();
     if (!this.disabled) {
       this.gridService.setPaintingMode(PaintingMode.ERASE);
-      this.contextMenu.emit(this.getPixelAt(event.offsetX, event.offsetY));
+
+      const pixel = this.getPixelAt(event.offsetX, event.offsetY);
+      if (pixel) {
+        this.contextMenu.emit(pixel);
+      }
     }
   }
 

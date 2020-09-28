@@ -8,6 +8,7 @@
     "build:lib": "ng build ngx-drawing-grid --prod && cp -r README.md dist/ngx-drawing-grid",
     "deploy": "ng deploy --base-href=/ngx-drawing-grid/",
     "test": "ng test",
+    "test:lib": "ng test ngx-drawing-grid",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
