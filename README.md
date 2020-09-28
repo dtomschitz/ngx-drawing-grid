@@ -11,7 +11,7 @@
 ✅ Lightning fast drawing <br>
 ✅ Hackable <br>
 
-A flexible and straightforward library for drawing and interacting seamless with a grid using the HTML5 canvas. 
+A flexible and straightforward library for drawing and interacting seamless with a grid using the HTML5 canvas. Try it out here: https://davidddo.github.io/ngx-drawing-grid/ or run the demo localy via `npm start`
 
 ## Installation
 `npm install ngx-drawing-grid`
