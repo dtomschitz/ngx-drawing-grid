@@ -14,7 +14,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
   width: number;
   height: number;
-  nodeSize = 28;
+  pixelSize = 28;
 
   private paintingMode: PaintingMode;
   private color: string;

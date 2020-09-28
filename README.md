@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
 
   width: number;
   height: number;
-  nodeSize = 28;
+  pixelSize = 28;
 
   private paintingMode: PaintingMode;
 
@@ -85,7 +85,7 @@ export class AppComponent implements OnInit {
   <drawing-grid
     [width]="width"
     [height]="height"
-    [pixelSize]="nodeSize"
+    [pixelSize]="pixelSize"
     (mouseDown)="onMouseDown($event)"
     (mouseMove)="onMouseMove($event)"
     (mouseUp)="onMouseUp($event)"
@@ -94,15 +94,24 @@ export class AppComponent implements OnInit {
 </ng-container>
 ```
 
-## Inputs
+## DrawingGridComponent Inputs
 * `width` - The width of the canvas. The value will also be used for calculating the amount of pixels on the x-axis if the input `xNodes` is undefined
 * `height` - The height of the canvas. The value will also be used for calculating the amount of pixels on the y-axis if the input `yNodes` is undefined
 * `xNodes` - The amount of pixels on the y-axis
 * `yNodes` - The amount of pixels on the y-axis
 * `pixelSize` - The size of a pixel
+* `color` - The color of the grid
 * `disabled` - Disables or enables the canvas. If it is set to true the events will not get emitted
 
-## API
+# DrawingGridComponent Output Events
+* `mouseDown` - Gets emitted when the mouse has been pressed
+* `mouseMove` - Gets emitted when the mouse has been pressed and is moving
+* `mouseUp` - Gets emitted when the mouse has been released
+* `contextMenu` - Gets emitted when the right mouse button has been pressed
+
+Each output event from the `Drawing Grid Component` will return the current Pixel where the mouse is located on
+
+## DrawingGridService API
 * `isMouseLocked$` - Observe whether the mouse is currently locked or not. If the value is true either the left or right mouse button is currently pressed by the user
 * `paintingMode$` - Observe the current set painting mode
 * `pixels$` - Observe the pixels of the drawing grid
@@ -111,10 +120,3 @@ export class AppComponent implements OnInit {
 * `getPixel()` - Returns the pixel at the given x and y coordinates
 * `getPixelById()`- Returns the pixel which is associated with the given id
 
-# Events
-* `mouseDown` - Gets emitted when the mouse has been pressed
-* `mouseMove` - Gets emitted when the mouse has been pressed and is moving
-* `mouseUp` - Gets emitted when the mouse has been released
-* `contextMenu` - Gets emitted when the right mouse button has been pressed
-
-Each output event from the `Drawing Grid Component` will return the current Pixel where the mouse is located on
