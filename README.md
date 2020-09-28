@@ -1,5 +1,8 @@
-# Drawing Grid
-A library for drawing and interacting with a grid using the HTML5 canvas. 
+<p align="center">
+ <img width="20%" height="20%" src="./logo.svg">
+</p>
+
+A library for drawing and interacting seamless with a grid using the HTML5 canvas. 
 
 ## Installation
 `npm install ngx-drawing-grid`
