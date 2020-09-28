@@ -28,6 +28,7 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
   @Input() xNodes: number;
   @Input() yNodes: number;
   @Input() pixelSize: number;
+  @Input() color = '#424242';
   @Input() disabled = false;
 
   @Output() mouseDown: EventEmitter<Pixel> = new EventEmitter<Pixel>();
@@ -160,7 +161,7 @@ export class DrawingGridComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   renderGrid() {
-    this.renderingContext.strokeStyle = '#424242';
+    this.renderingContext.strokeStyle = this.color;
     this.renderingContext.beginPath();
 
     for (let x = this.paddingLeft; x <= this.width - this.paddingRight; x += this.pixelSize) {
