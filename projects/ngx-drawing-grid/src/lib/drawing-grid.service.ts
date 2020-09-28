@@ -37,7 +37,7 @@ export class DrawingGridService {
   }
 
   getPixelById(id: string) {
-    return this.pixels.find((pixel) => (pixel.id = id));
+    return this.pixels.find((pixel) => pixel.id === id);
   }
 
   private updatePixel(x: number, y: number, fillStyle: string) {
