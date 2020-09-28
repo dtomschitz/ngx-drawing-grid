@@ -1,6 +1,22 @@
 {
   "name": "ngx-drawing-grid",
   "version": "0.0.1",
+  "description": "A Angular library for drawing and interacting with a grid using the HTML5 canvas.",
+  "keywords": [
+    "angular",
+    "drawing",
+    "drawing-library",
+    "pixel-art"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidddo/ngx-drawing-grid/issue"
+  },
+  "homepage": "https://github.com/davidddo/ngx-drawing-grid#readme",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidddo/ngx-drawing-grid"
+  },
   "peerDependencies": {
     "@angular/common": "^9.1.12",
     "@angular/core": "^9.1.12"
