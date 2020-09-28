@@ -1,9 +1,11 @@
 # Drawing Grid
+A library for drawing and interacting with a grid using the HTML5 canvas. 
 
 ## Installation
 `npm install ngx-drawing-grid`
 
 ## Usage
+Inject the `DrawingGridModule` module into your root module:
 ```typescript
 import { NgModule } from '@angular/core';
 import { DrawingGridModule } from 'ngx-drawing-grid';
@@ -17,6 +19,7 @@ import { AppComponent } from './app.component';
 export class AppModule {}
 ```
 
+You can now access the `DrawingGridService` in order to modify the pixels of the grid.
 ```typescript
 import { Component, ElementRef, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -25,8 +28,19 @@ import { DrawingGridService, Pixel, PaintingMode } from 'drawing-grid';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  template: `
+    <ng-container *ngIf="width && height">
+      <drawing-grid
+        [width]="width"
+        [height]="height"
+        [pixelSize]="pixelSize"
+        (mouseDown)="onMouseDown($event)"
+        (mouseMove)="onMouseMove($event)"
+        (mouseUp)="onMouseUp($event)"
+        (contextMenu)="onContextMenu($event)">
+      </drawing-grid>
+    </ng-container>
+  `
 })
 export class AppComponent implements OnInit {
   private readonly destroy$: Subject<void> = new Subject<void>();
@@ -80,19 +94,6 @@ export class AppComponent implements OnInit {
   }
 }
 ```
-```html
-<ng-container *ngIf="width && height">
-  <drawing-grid
-    [width]="width"
-    [height]="height"
-    [pixelSize]="pixelSize"
-    (mouseDown)="onMouseDown($event)"
-    (mouseMove)="onMouseMove($event)"
-    (mouseUp)="onMouseUp($event)"
-    (contextMenu)="onContextMenu($event)">
-  </drawing-grid>
-</ng-container>
-```
 
 ## DrawingGridComponent Inputs
 * `width` - The width of the canvas. The value will also be used for calculating the amount of pixels on the x-axis if the input `xNodes` is undefined
@@ -109,7 +110,7 @@ export class AppComponent implements OnInit {
 * `mouseUp` - Gets emitted when the mouse has been released
 * `contextMenu` - Gets emitted when the right mouse button has been pressed
 
-Each output event from the `Drawing Grid Component` will return the current Pixel where the mouse is located on
+Each output event from the `DrawingGridComponent` will return the current Pixel where the mouse is located on
 
 ## DrawingGridService API
 * `isMouseLocked$` - Observe whether the mouse is currently locked or not. If the value is true either the left or right mouse button is currently pressed by the user
