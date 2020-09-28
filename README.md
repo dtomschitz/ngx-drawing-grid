@@ -100,7 +100,7 @@ export class AppComponent implements OnInit {
 * `xNodes` - The amount of pixels on the y-axis
 * `yNodes` - The amount of pixels on the y-axis
 * `pixelSize` - The size of a pixel
-* `color` - The color of the grid
+* `fillStyle` - The fillstyle of the grid
 * `disabled` - Disables or enables the canvas. If it is set to true the events will not get emitted
 
 # DrawingGridComponent Output Events
